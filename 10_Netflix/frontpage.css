@@ -1,0 +1,9 @@
+body{
+    background-color: black;
+}
+#logo {
+    width: 180px;
+}
+.text{
+    color: red;
+}

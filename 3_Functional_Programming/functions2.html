@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functions 2</title>
+</head>
+<body>
+  <script>
+      const myFavoriteThings = ["Java", "🍆", false];
+
+      function printer(something) {
+          console.log(something);
+      }
+      //Higher order function - EN funktion som tager en funktion som argument. Foreach tager printer som argument.
+      //myFavoriteThings.forEach(printer);
+
+      // Foreach looper gennem hvert element, og printer element ud.
+      //myFavoriteThings.forEach(element => printer(element));
+
+      //myFavoriteThings.forEach(console.log);
+      //Det ovenpå er det samme som det nedenunder.
+      //myFavoriteThings.forEach((element, index, list) => printer(element, index, list));
+
+      //The anatomy of a lambda
+      /*
+      (someArgument) [I name them]
+      =>             [denotes lambda syntax]
+      ...            [function/lambda body]
+       */
+
+      //printer intet
+      //myFavoriteThings.forEach(element => {});
+
+  </script>
+
+</body>
+</html>

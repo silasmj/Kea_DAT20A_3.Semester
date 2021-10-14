@@ -1,0 +1,16 @@
+// String literal:
+"Hello World"
+
+// Function literal:
+() -> System.out.println();
+Også kaldt: Lambda, anonym funktion
+
+// First-class citizen:
+Regler for hvornår det er:
+    - Being passed as an argument.
+    - returned from a function.
+    - modified
+    - assigned to a variable.
+Funktioner i javascript er first-class citizen.
+
+

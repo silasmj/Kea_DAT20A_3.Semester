@@ -1,0 +1,17 @@
+{
+    "lol": "Orale",
+    "isTrue": false;
+    "alder": 24,
+    "Klassen": {
+        "name": "Martin", "alder": 32,
+        "name": "Oliver", "alder": 22
+    }
+
+    "hej": [
+        {"1": "Hello"},
+        {"2": "ey"},
+        {"3": "yo"},
+        {"4": "Hej"},
+        {"5": "Si"}
+    ]
+}
