@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.kea.paintings.DTO.ArtistDTO;
+import edu.kea.paintings.models.Artist;
 import edu.kea.paintings.models.Painting;
 import edu.kea.paintings.repositories.ArtistRepository;
 import edu.kea.paintings.repositories.PaintingRepository;
@@ -52,12 +53,12 @@ public class Paintings {
 
         Iterable<Long> artistsIds = mapper.readValue(body, ArtistDTO.class).artistsIds;
 
-        artists.findAllById(artistsIds);
+        List<Artist> foundArtists = artists.findAllById(artistsIds);
 
-        return null;
+        paintingToCreate.setArtists(foundArtists);
 
-       /* newPainting.setId(null);
-        return paintings.save(newPainting); */
+        return paintings.save(paintingToCreate);
+
     }
     @DeleteMapping("/paintings/{id}")
     public void deletePaintingById(@PathVariable Long id) {
