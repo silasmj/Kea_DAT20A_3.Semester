@@ -2,22 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cookie Clicker</title>
 </head>
 <body>
-    <h1>Click the cookie</h1>
-    <button id="click-btn">Click</button>
+<h1>Click the cookie</h1>
+<button id="click-btn">Click</button>
 
-    <script>
-        const clickedButton = log(document.getElementById("click-btn");
-        clickedButton.addEventListener("click", () => {
-            console.log("You interacted with the button");
-        });
+<div id="click-counters"></div>
 
-        function buttonClicked() {
-            console.log("Someone clicked on the button!")
-        }
-    </script>
+<script>
+    let counter = 0;
+    const clickButton = document.getElementById("click-btn");
+    clickButton.addEventListener("mouseenter", () => {
+        // console.log("oooh, somebody is about to click.. the suspense is killing me");
+    });
+    clickButton.addEventListener("click", buttonClicked);
 
+    function buttonClicked() {
+        counter++;
+        // console.log("The button was clicked", counter, "times");
+
+        const paragraph = document.createElement("p");
+        paragraph.innerText = "You've clicked the button " + counter + " times.";
+        paragraph.style.color = "blue";
+
+        const counterWrapper = document.getElementById("click-counters");
+
+        counterWrapper.prepend(paragraph);
+    }
+</script>
 </body>
 </html>
