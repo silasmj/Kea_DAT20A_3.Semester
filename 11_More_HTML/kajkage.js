@@ -17,7 +17,15 @@ const kajkager = [{
     type: "Andrea",
     color: "blue",
     deliciousness: 8
-}];
+    },
+    {
+
+        type: "Kaj",
+        color: "brown",
+        deliciousness: 1
+
+    }
+];
 
 // Man kan push eller pop til en liste.
 
