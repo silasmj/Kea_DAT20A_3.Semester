@@ -10,39 +10,47 @@ function createGalleryTableRow(gallery) {
     const galleryTableRow = document.createElement("tr");
     galleryTableRow.id = gallery.id;
 
+    constructGalleryTableRow(galleryTableRow, gallery);
+
+    galleriesTableBody.appendChild(galleryTableRow);
+
+    document.getElementById(`update-button-${gallery.id}`)
+        .addEventListener("click", () => updateGallery(gallery));
+}
+
+function constructGalleryTableRow(galleryTableRow, gallery) {
     galleryTableRow.innerHTML = `
             <td>
                 <a href="./gallery.html?galleryId=${gallery.id}">
-                    <p>${escapeHTML(gallery.name)}</p>
+                    <p class="row-gallery-name">${escapeHTML(gallery.name)}</p>
                 </a>
             </td>
             <td>
-                <p>${escapeHTML(gallery.location)}</p>
+                <p class="row-gallery-location">${escapeHTML(gallery.location)}</p>
             </td>
             <td>
-                <p>${escapeHTML(gallery.owner)}</p>
+                <p class="row-gallery-owner">${escapeHTML(gallery.owner)}</p>
             </td>
             <td>
-                <p>${escapeHTML(gallery.squareFeet.toString())}</p>
+                <p class="row-gallery-square-feet">${escapeHTML(gallery.squareFeet.toString())}</p>
+            </td>
+            <td>
+                <button id="update-button-${gallery.id}">🥯</button>            
             </td>           
             <td>
                 <button onclick="deleteGallery(${gallery.id})">❌</button>            
             </td>
         `;
-
-    galleriesTableBody.appendChild(galleryTableRow);
 }
 
 function deleteGallery(galleryId) {
     fetch(baseURL + "/galleries/" + galleryId, {
         method: "DELETE"
-        }).then(response => {
-            if (response.status === 200) {
-                document.getElementById(galleryId).remove()
-            }else {
-                console.log(response.status)
-            }
-    })
-
+    }).then(response => {
+        if (response.status === 200) {
+            document.getElementById(galleryId).remove();
+        } else {
+            console.log(response.status);
+        }
+    });
 }
-
