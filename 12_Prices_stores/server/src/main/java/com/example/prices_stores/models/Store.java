@@ -1,5 +1,6 @@
 package com.example.prices_stores.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.mapping.Set;
 
@@ -29,6 +30,7 @@ public class Store {
     @Enumerated(value = EnumType.STRING)
     private CountryOfOrigin madeIn;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "store", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Price> prices;
 }
